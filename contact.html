@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - CodeVision</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">CodeVision</div>
+        <div class="nav-links">
+            <a href="index.html">Accueil</a>
+            <a href="langages.html">Langages</a>
+            <a href="vision.html">Ma Vision</a>
+            <a href="expertise.html">Expertise</a>
+            <a href="contact.html" class="active">Contact</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <h1 class="section-title">Contactez-moi par email en remplissant le formulaire ci-dessous</h1>
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-bottom: 3rem;">
+            <div>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="nom">Nom complet</label>
+                        <input type="text" id="nom" name="nom" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="sujet">Sujet</label>
+                        <input type="text" id="sujet" name="sujet" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn" style="width: 100%;" id="sendEmailBtn">Envoyer le message</button>
+                </form>
+            </div>
+        </div>
+        
+        <div style="background-color: var(--card-bg); padding: 2rem; border-radius: 10px; border: 1px solid var(--border-color);">
+            <h2 style="color: var(--primary-blue); text-align: center; margin-bottom: 1.5rem;">FAQ - Questions fréquentes</h2>
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem;">
+                <div>
+                    <h3 style="color: var(--primary-blue); margin-bottom: 0.5rem;">❓ Quel langage choisir pour débuter ?</h3>
+                    <p style="color: var(--text-secondary);">Python est généralement recommandé pour sa syntaxe simple et sa polyvalence.</p>
+                </div>
+                <div>
+                    <h3 style="color: var(--primary-blue); margin-bottom: 0.5rem;">❓ Combien de temps pour apprendre ?</h3>
+                    <p style="color: var(--text-secondary);">Les bases peuvent être acquises en 3-6 mois avec une pratique régulière.</p>
+                </div>
+                <div>
+                    <h3 style="color: var(--primary-blue); margin-bottom: 0.5rem;">❓ Faut-il être bon en maths ?</h3>
+                    <p style="color: var(--text-secondary);">Pas nécessairement, la logique est plus importante que les maths avancées.</p>
+                </div>
+                <div>
+                    <h3 style="color: var(--primary-blue); margin-bottom: 0.5rem;">❓ Proposez-vous des formations ?</h3>
+                    <p style="color: var(--text-secondary);">Oui, contactez-moi pour plus d'informations sur les formations personnalisées.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>CodeVision</h3>
+                <p>Votre guide dans l'apprentissage des langages de programmation</p>
+            </div>
+            <div class="footer-section">
+                <h3>Navigation</h3>
+                <p><a href="index.html">Accueil</a></p>
+                <p><a href="langages.html">Langages</a></p>
+                <p><a href="vision.html">Ma Vision</a></p>
+                <p><a href="expertise.html">Expertise</a></p>
+                <p><a href="contact.html">Contact</a></p>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: anasasarahkitoko@gmail.com</p>
+                <p>Tel: +243 815267032</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2026 CodeVision - Tous droits réservés</p>
+        </div>
+    </footer>
+    <script>
+        document.getElementById('sendEmailBtn').addEventListener('click', function(event) {
+            event.preventDefault();
+            const nom = document.getElementById('nom').value;
+            const email = document.getElementById('email').value;
+            const sujet = document.getElementById('sujet').value;
+            const message = document.getElementById('message').value;
+            if (nom && email && sujet && message) {
+                //envoie automatiquement le message à l'email de contact
+                window.location.href = `mailto:anasasarahkitoko@gmail.com?subject=${encodeURIComponent(sujet)}&body=Bonjour ${nom},%0D%0A%0D%0A${encodeURIComponent(message)}%0D%0A%0D%0AVous pouvez me contacter à l'adresse suivante : ${email}`;
+                document.querySelector('.contact-form').reset();
+            } else {
+                alert('Veuillez remplir tous les champs du formulaire.');
+            }
+        });
+        </script>
+</body>
+</html>
